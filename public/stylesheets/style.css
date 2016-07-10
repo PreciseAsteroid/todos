@@ -1,17 +1,10 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  /*background-color: blue;*/
-}
-
-a {
-  color: #00B7FF;
-}
-
-ul {
-  list-style-type: none;
-}
-
-.checked {
-    text-decoration: line-through;
-}
+  background-color: red; }
+  body a {
+    color: #00B7FF; }
+  body ul {
+    list-style-type: none; }
+    body ul .checked {
+      text-decoration: line-through; }
