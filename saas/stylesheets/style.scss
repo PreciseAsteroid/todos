@@ -3,8 +3,9 @@ $primary-link-color: #00B7FF;
   body {
     padding: 50px;
     font: 14px $font-stack;
-    background-color: red;
-    
+    background-color: #2D3143;
+    color: white;
+
     a {
       color: $primary-link-color;
     }
