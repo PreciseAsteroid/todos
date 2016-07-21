@@ -39,6 +39,10 @@ app.use (
    })
  );
 
+//  handlebars fy
+browserify.settings({
+   transform: ['hbsfy']
+  });
 // broswerify
 app.get('/javascripts/bundle.js', browserify('./client/script.js'));
 
