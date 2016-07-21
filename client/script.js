@@ -13,7 +13,7 @@ $(function(){
     }
   });
 
-  $('input').on('click',function(){
+  $(document).on('click','input',function(){
     $(this.nextElementSibling).toggleClass('checked');
   });
 });
