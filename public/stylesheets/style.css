@@ -4,7 +4,11 @@ body {
   background-color: #2D3143;
   color: white; }
   body a {
-    color: #00B7FF; }
+    color: #00B7FF;
+    text-emphasis: none;
+    cursor: pointer; }
+    body a:hover {
+      text-decoration: underline; }
   body ul {
     list-style-type: none; }
     body ul .checked {

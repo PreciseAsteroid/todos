@@ -1,11 +1,13 @@
-<li>
+<li id='{{this._id}}'>
   <input type="checkbox"
   {{#if this.done}}
     checked
   {{/if}}>
-  <span class={{#if this.done}}
+  <span class="{{#if this.done}}
     checked
-  {{/if}}>
+  {{/if}}"
+  contenteditable="true">
   {{this.text}}
   </span>
+  <a>X</a>
 </li>

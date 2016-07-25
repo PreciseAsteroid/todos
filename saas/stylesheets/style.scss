@@ -8,6 +8,11 @@ $primary-link-color: #00B7FF;
 
     a {
       color: $primary-link-color;
+      text-emphasis: none;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
     }
     ul {
       list-style-type: none;
