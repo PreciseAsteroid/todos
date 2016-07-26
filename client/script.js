@@ -65,6 +65,9 @@ $('ul').on('click', 'li a', function(e) {
   });
 });
 
+// initializing the DOM observer
+initTodoObserver();
+
 });
 
 var addTodo = function(){
@@ -116,3 +119,50 @@ var deleteTodoli = function($li){
   $li.remove();
   console.log('I am now removing the line');
 };
+
+//Ajax UI helpers
+
+var initTodoObserver = function(){
+  var target = $('ul')[0];
+  var config = { attributes: true, childList: true, characterData: true};
+  var observer = new MutationObserver(function(mutationRecords){
+    $.each(mutationRecords, function(index, mutationRecord) {
+      updateTodoCount();
+    });
+  });
+  observer.observe(target, config);
+  updateTodoCount();
+};
+
+var updateTodoCount = function(){
+  $(".count").text($('li').length);
+};
+
+// filters
+// show all
+$('.filter').on('click', '.show-all', function(e) {
+  $('.hide').removeClass('hide');
+});
+
+// show not done
+$('.filter').on('click', '.show-not-done', function(e) {
+  $('.hide').removeClass('hide');
+  $('.checked').closest('li').addClass('hide');
+});
+
+// show done
+$('.filter').on('click', '.show-done', function(e) {
+  $('li').addClass('hide');
+  $('.checked').closest('li').removeClass('hide');
+});
+
+// clear all todos => delete every todo which is done
+$('.clear').on('click', function(e) {
+    var $doneLi = $('.checked').closest('li');
+    for (var i = 0; i < $doneLi.length; i++) {
+      $li = $($doneLi[i]); // still need just to get the line and not the all structure
+      deleteTodo($li.attr('id'), deleteTodoli($li));
+      // TODO: solve issue with TypeError: cb is not a function// &nbsp;/javascripts/bundle.js:114
+    }
+
+  });
