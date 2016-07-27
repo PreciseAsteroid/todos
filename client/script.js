@@ -160,9 +160,13 @@ $('.filter').on('click', '.show-done', function(e) {
 $('.clear').on('click', function(e) {
     var $doneLi = $('.checked').closest('li');
     for (var i = 0; i < $doneLi.length; i++) {
-      $li = $($doneLi[i]); // still need just to get the line and not the all structure
-      deleteTodo($li.attr('id'), deleteTodoli($li));
-      // TODO: solve issue with TypeError: cb is not a function// &nbsp;/javascripts/bundle.js:114
+      var $li = $($doneLi[i]); // still need just to get the line and not the all structure
+      var id = $li.attr('id');
+      (function($li){ // wrapping deleteTodo in a closure so that $li will continue to live there when the call back is launched
+        deleteTodo(id,function(){
+          deleteTodoli($li);
+        });
+      })($li);
     }
 
   });
