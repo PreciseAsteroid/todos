@@ -117,7 +117,7 @@ var deleteTodo = function(id,cb){
 
 var deleteTodoli = function($li){
   $li.remove();
-  console.log('I am now removing the line');
+  console.log('I am now removing the line from the DOM');
 };
 
 //Ajax UI helpers
@@ -159,14 +159,22 @@ $('.filter').on('click', '.show-done', function(e) {
 // clear all todos => delete every todo which is done
 $('.clear').on('click', function(e) {
     var $doneLi = $('.checked').closest('li');
-    for (var i = 0; i < $doneLi.length; i++) {
-      var $li = $($doneLi[i]); // still need just to get the line and not the all structure
-      var id = $li.attr('id');
-      (function($li){ // wrapping deleteTodo in a closure so that $li will continue to live there when the call back is launched
-        deleteTodo(id,function(){
-          deleteTodoli($li);
-        });
-      })($li);
+    // for (var i = 0; i < $doneLi.length; i++) {
+    //   var $li = $($doneLi[i]); // still need just to get the line and not the all structure
+    //   var id = $li.attr('id');
+    //   (function($li){ // wrapping deleteTodo in a closure so that $li will continue to live there when the call back is launched
+    //     deleteTodo(id,function(){
+    //       deleteTodoli($li);
+    //     });
+    //   })($li);
+    // }
+
+    for (let i = 0; i < $doneLi.length; i++) {
+      let $li = $($doneLi[i]);
+      let id =  $li.attr('id');
+      deleteTodo(id,function(){
+        deleteTodoli($li);
+      });
     }
 
   });
