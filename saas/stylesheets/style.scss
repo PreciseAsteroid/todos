@@ -23,7 +23,7 @@ $primary-link-color: #00B7FF;
     padding: 50px;
     font: 14px $font-stack;
     background-color: #2D3143;
-    color: white;
+    //color: #555;
 
     a {
       color: $primary-link-color;
@@ -39,6 +39,10 @@ $primary-link-color: #00B7FF;
         text-decoration: line-through;
       }
     }
+  }
+
+  .todos {
+    margin-top: 20px;
   }
 
   .footer div {
