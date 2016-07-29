@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
 var Promise = require('bluebird');
+
+var Schema = mongoose.Schema;
 Promise.promisifyAll(mongoose);
 
 var TodosSchema = new Schema ({
