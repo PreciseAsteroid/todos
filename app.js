@@ -5,7 +5,7 @@ var exphbs = require('express-handlebars');
 var sassMiddleware = require('node-sass-middleware');
 var browserify = require('browserify-middleware');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/todos');
+mongoose.connect(process.env.MONGOLAB_URI ||'mongodb://localhost/todos');
 
 
 var path = require('path');
