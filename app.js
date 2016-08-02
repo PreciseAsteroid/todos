@@ -7,7 +7,7 @@ var browserify = require('browserify-middleware');
 var mongoose = require('mongoose');
 
 mongoose.connect(process.env.MONGOLAB_URI ||'mongodb://localhost/todos');
-console.log('===== Connecting to DB ... =====', process.env.MONGOLAB_URI);
+console.log('===== Connecting to DB ... =====', process.env.MONGOLAB_URI ||'mongodb://localhost/todos');
 
 
 var path = require('path');
