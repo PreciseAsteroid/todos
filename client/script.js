@@ -81,7 +81,7 @@ var addTodo = function(){
     },
     dataType: 'json',
     success: function(data){
-      var todo = data.todo[0];
+      var todo = data.todo;
       var newLiHtml = todoTemplate(todo);
       $('form + ul').append(newLiHtml);
       $('#add-todo-text').val('');
