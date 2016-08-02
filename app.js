@@ -6,9 +6,9 @@ var sassMiddleware = require('node-sass-middleware');
 var browserify = require('browserify-middleware');
 var mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGOLAB_URI ||'mongodb://localhost/todos');
-console.log('==== loging just the remote db', process.env.MONGOLAB_URI);
-console.log('===== Connecting to DB ... =====', process.env.MONGOLAB_URI ||'mongodb://localhost/todos');
+mongoose.connect(process.env.MONGODB_URI ||'mongodb://localhost/todos');
+console.log('==== loging just the remote db', process.env.MONGODB_URI);
+console.log('===== Connecting to DB ... =====', process.env.MONGODB_URI ||'mongodb://localhost/todos');
 
 
 var path = require('path');
