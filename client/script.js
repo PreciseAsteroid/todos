@@ -6,6 +6,7 @@ $(function(){
   $(":text").on('keypress', function(e){
     var key = e.keyCode;
     if (key == 13 || key == 169) {
+      $(this).attr('disabled',true);
       addTodo();
       e.preventDefault();
       e.stopPropagation();
@@ -59,6 +60,7 @@ $('ul').on('click', 'li a', function(e) {
       $input = $this[0],
       $li = $this.parent(),
       $id = $li.attr('id');
+
   console.log($id);
   deleteTodo($id,function(e){
     deleteTodoli($li);
@@ -73,6 +75,7 @@ initTodoObserver();
 var addTodo = function(){
   console.log('addTodo() was called');
   var text = $('#add-todo-text').val();
+  
   $.ajax({
     url: '/api/todos/',
     type: 'POST',
@@ -84,7 +87,9 @@ var addTodo = function(){
       var todo = data.todo;
       var newLiHtml = todoTemplate(todo);
       $('form + ul').append(newLiHtml);
-      $('#add-todo-text').val('');
+      $('#add-todo-text').val('')
+                         .attr('disabled',false);
+
     }
   });
 };
