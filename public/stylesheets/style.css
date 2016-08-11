@@ -10,7 +10,7 @@
     text-align: center;
     margin: auto;
     font-size: 25px; }
-    .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
       cursor: default;
       color: #ecf0f1; }
 

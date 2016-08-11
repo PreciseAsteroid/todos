@@ -5,11 +5,8 @@ var exphbs = require('express-handlebars');
 var sassMiddleware = require('node-sass-middleware');
 var browserify = require('browserify-middleware');
 var mongoose = require('mongoose');
-
-mongoose.connect(process.env.MONGODB_URI ||'mongodb://localhost/todos');
-
-
-
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -61,6 +58,15 @@ if (app.get('env') == 'development') {
   var bs = browserSync(config);
   app.use(require('connect-browser-sync')(bs));
 }
+// mongo setup
+mongoose.connect(process.env.MONGODB_URI ||'mongodb://localhost/todos');
+
+//passport setup
+var User = require('./models/users');
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
@@ -70,10 +76,23 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(passport.initialize());
+app.use(passport.session());
+
+// TODO: what is this for? do I need it?
+// app.use(session({ secret: 'todos-secret', resave: false, saveUninitialized: false }));
+
+
+// TODO: what is this for? do I need it?
+// app.use(flash());
+
 app.use('/', routes);
 app.use('/users', users);
 app.use('/todos', todos);
 app.use('/api/todos', todosAPI);
+
+
+
 
 
 // catch 404 and forward to error handler

@@ -1,88 +1,79 @@
 $font-stack: "Lucida Grande", Helvetica, Arial, sans-serif;
 $primary-link-color: #00B7FF;
-
-  .navbar-default{
+.navbar-default {
     background-image: none;
     background-color: #e74c3c;
     border-color: #c0392b;
-    .navbar-brand{
-      color: #ecf0f1;
-      position: absolute;
-      width: 100%;
-      left: 0;
-      text-align: center;
-      margin: auto;
-      font-size: 25px;
-      &:hover, &:focus{
-        cursor: default;
+    .navbar-brand {
         color: #ecf0f1;
-      }
+        position: absolute;
+        width: 100%;
+        left: 0;
+        text-align: center;
+        margin: auto;
+        font-size: 25px;
+        &:focus,
+        &:hover {
+            cursor: default;
+            color: #ecf0f1;
+        }
     }
-  }
-  body {
+}
+body {
     padding: 50px;
     font: 14px $font-stack;
     background-color: #2D3143;
-    //color: #555;
-
     a {
-      color: $primary-link-color;
-      text-emphasis: none;
-      cursor: pointer;
-      &:hover {
-        text-decoration: underline;
-      }
+        color: $primary-link-color;
+        text-emphasis: none;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
     }
     ul {
-      list-style-type: none;
-      .checked {
-        text-decoration: line-through;
-      }
+        list-style-type: none;
+        .checked {
+            text-decoration: line-through;
+        }
     }
-
-
-  .todos {
-    margin-top: 20px;
-  }
-
-
-  .footer div {
-    float: left;
-    padding: 0 10px;
-  }
-
-  .hide {
-    display: none;
-  }
-
-  // login/register form
-  .form-signin {
-    background-color: white;
-    max-width: 330px;
-    padding: 15px;
-    //margin: 0 auto:
-    .form-control {
-      position: relative;
-      height: auto;
-      -webkit-box-sizing: border-box;
-         -moz-box-sizing: border-box;
-              box-sizing: border-box;
-      padding: 10px;
-      font-size: 16px;
-      &:focus {
-        z-index: 2;
-      }
-
+    .todos {
+        margin-top: 20px;
     }
-    input[type="email"] {
-      margin-bottom: -1px;
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: 0;
+    .footer div {
+        float: left;
+        padding: 0 10px;
     }
-    input[type="password"] {
-      margin-bottom: 10px;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
+    .hide {
+        display: none;
     }
-  }
+    // login/register form
+    .form-signin {
+        background-color: white;
+        max-width: 330px;
+        padding: 15px;
+        //margin: 0 auto:
+        .form-control {
+            position: relative;
+            height: auto;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 10px;
+            font-size: 16px;
+            &:focus {
+                z-index: 2;
+            }
+        }
+        input[type="email"] {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        input[type="password"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+    }
 }
