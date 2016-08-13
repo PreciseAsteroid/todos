@@ -1,2 +1,32 @@
-<p class="well well-lg">
-  {{user}} Welcome to {{title}}</p>
+<container>
+    <div class="well well-lg welcome col-md-4 col-md-offset-4">
+        {{#if user}}
+            <h4>
+            Welcome {{user.username}}
+        </h4>
+        {{else}}
+            <h4>
+            Welcome to {{title}}
+        </h4>
+        {{/if}}
+        <div>
+            {{#if user}}
+                <a href="/todos">
+                    <button type="submit" class="btn btn-success btn-lg">Todos</button>
+                </a>
+                <a href="/logout">
+                    <button type="submit" class="btn btn-danger btn-lg">Logout</button>
+                </a>
+
+            {{else}}
+                <a href="/login">
+                    <button type="submit" class="btn btn-success btn-lg">Login</button>
+                </a>
+                <a href="/register">
+                    <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                </a>
+            {{/if}}
+        </div>
+
+    </div>
+</container>

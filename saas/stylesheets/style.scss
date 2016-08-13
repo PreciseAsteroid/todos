@@ -21,6 +21,7 @@ $primary-link-color: #00B7FF;
 }
 body {
     padding: 50px;
+    padding-top: 70px;
     font: 14px $font-stack;
     background-color: #2D3143;
     a {
@@ -37,6 +38,13 @@ body {
             text-decoration: line-through;
         }
     }
+    .welcome {
+        max-width: 330px;
+        padding: 30px;
+        margin-top: 30px;
+        border-radius: 10px;
+    }
+
     .todos {
         margin-top: 20px;
     }
@@ -51,7 +59,10 @@ body {
     .form-signin {
         background-color: white;
         max-width: 330px;
-        padding: 15px;
+        padding: 30px;
+        margin-top: 30px;
+        border-radius: 10px;
+
         //margin: 0 auto:
         .form-control {
             position: relative;

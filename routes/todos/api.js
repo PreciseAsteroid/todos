@@ -15,8 +15,11 @@ router.route('/')
   })
 // post create a todos
   .post(function(req,res,next){
+    console.log('post todo api/todos: user->  ' + req.user)
     var todo = new Todo();
+    todo.user = req.user._id;
     todo.text = req.body.text;
+    console.log('post todo api/todos: ' + todo);
     todo.saveAsync()
     .then(function(todo){
       console.log('success');

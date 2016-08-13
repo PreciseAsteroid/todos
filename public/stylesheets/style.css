@@ -16,6 +16,7 @@
 
 body {
   padding: 50px;
+  padding-top: 70px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #2D3143; }
   body a {
@@ -28,6 +29,11 @@ body {
     list-style-type: none; }
     body ul .checked {
       text-decoration: line-through; }
+  body .welcome {
+    max-width: 330px;
+    padding: 30px;
+    margin-top: 30px;
+    border-radius: 10px; }
   body .todos {
     margin-top: 20px; }
   body .footer div {
@@ -38,7 +44,9 @@ body {
   body .form-signin {
     background-color: white;
     max-width: 330px;
-    padding: 15px; }
+    padding: 30px;
+    margin-top: 30px;
+    border-radius: 10px; }
     body .form-signin .form-control {
       position: relative;
       height: auto;

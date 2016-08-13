@@ -4,8 +4,11 @@ var passport = require('passport');
 var user = require('../models/users');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'my Todos WebApp implemented in Express & MongoDB', user: req.user });
+router.get('/', function(req, res) {
+  console.log('log user from get home: ' + req.user);
+  console.log('log session from get home: ' + req.session);
+  // console.log(req);
+  res.render('index', { title: 'Todos', user: req.user });
 });
 
 
@@ -20,10 +23,8 @@ router.post('/register',function(req,res){
   user.register(new user({ username: req.body.username}),req.body.password, function(err,user){
       if (err) {
         return res.render('regiser',{error: err.message, user: user});
-        // TODO: show error in register screen
       }
       passport.authenticate('local')(req,res,function(){
-        // TODO: should I save the session req.session.save? taken from gutams github
         res.redirect('/');
       });
 
@@ -33,12 +34,19 @@ router.post('/register',function(req,res){
 //login / get
 
 router.get('/login',function(req, res){
-  res.render('login',{});
+  res.render('login',{user:req.user});
 });
 
 // login / post
 
 router.post('/login',passport.authenticate('local'),function(req,res){
+  console.log('logged from post login: ' + req.user);
+  res.redirect('/');
+});
+
+//logout
+router.get('/logout',function(req,res){
+  req.logout();
   res.redirect('/');
 });
 
