@@ -13,6 +13,16 @@
     .navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover {
       cursor: default;
       color: #ecf0f1; }
+  .navbar-default .navbar-user {
+    color: #ecf0f1;
+    font-size: 15px; }
+    .navbar-default .navbar-user .navbar-icon {
+      font-size: 20px;
+      margin-top: 12px; }
+    .navbar-default .navbar-user li a {
+      color: #ecf0f1; }
+      .navbar-default .navbar-user li a:hover {
+        background-color: #c0392b; }
 
 body {
   padding: 50px;
@@ -42,11 +52,16 @@ body {
   body .hide {
     display: none; }
   body .form-signin {
+    opacity: 50%;
     background-color: white;
     max-width: 330px;
-    padding: 30px;
+    padding: 30px 30px 30px 0px;
     margin-top: 30px;
     border-radius: 10px; }
+    body .form-signin .input-group-addon {
+      background-color: inherit;
+      border-color: transparent;
+      color: black; }
     body .form-signin .form-control {
       position: relative;
       height: auto;
@@ -57,7 +72,7 @@ body {
       font-size: 16px; }
       body .form-signin .form-control:focus {
         z-index: 2; }
-    body .form-signin input[type="email"] {
+    body .form-signin input[type="username"] {
       margin-bottom: -1px;
       border-bottom-right-radius: 0;
       border-bottom-left-radius: 0; }
@@ -65,3 +80,8 @@ body {
       margin-bottom: 10px;
       border-top-left-radius: 0;
       border-top-right-radius: 0; }
+    body .form-signin .btn-signin {
+      background-color: #e74c3c;
+      border-color: #c0392b;
+      border-radius: 5px;
+      color: white; }

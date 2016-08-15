@@ -1,0 +1,12 @@
+<li id='{{this._id}}' class="list-group-item">
+    {{!-- <input type="checkbox" {{#if this.done}} checked {{/if}}>
+    <span class="{{#if this.done}}
+    checked
+  {{/if}}" contenteditable="true"> --}}
+  {{this.username}}
+  <input type="checkbox" disabled {{#if this.isAdmin}} checked {{/if}}>
+  </span>
+    <a class="pull-right">
+        <small><i class="glyphicon glyphicon-trash"></i></small>
+    </a>
+</li>

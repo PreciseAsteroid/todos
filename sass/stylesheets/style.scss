@@ -18,12 +18,29 @@ $primary-link-color: #00B7FF;
             color: #ecf0f1;
         }
     }
+    .navbar-user{
+        color: #ecf0f1;
+        font-size: 15px;
+        .navbar-icon{
+            font-size: 20px;
+            margin-top: 12px;
+        }
+        li a{
+            color: #ecf0f1;
+            &:hover {
+                //cursor: default;
+                background-color: #c0392b;;
+            }
+        }
+    }
 }
 body {
     padding: 50px;
     padding-top: 70px;
     font: 14px $font-stack;
     background-color: #2D3143;
+    //background: -webkit-linear-gradient(left, #2F2727, #1a82f7);
+
     a {
         color: $primary-link-color;
         text-emphasis: none;
@@ -57,11 +74,18 @@ body {
     }
     // login/register form
     .form-signin {
+        opacity: 50%;
         background-color: white;
         max-width: 330px;
-        padding: 30px;
+        padding: 30px 30px 30px 0px;
         margin-top: 30px;
         border-radius: 10px;
+
+        .input-group-addon{
+            background-color: inherit;
+            border-color: transparent;
+            color: black;
+        }
 
         //margin: 0 auto:
         .form-control {
@@ -75,8 +99,11 @@ body {
             &:focus {
                 z-index: 2;
             }
+
         }
-        input[type="email"] {
+
+
+        input[type="username"] {
             margin-bottom: -1px;
             border-bottom-right-radius: 0;
             border-bottom-left-radius: 0;
@@ -85,6 +112,12 @@ body {
             margin-bottom: 10px;
             border-top-left-radius: 0;
             border-top-right-radius: 0;
+        }
+        .btn-signin{
+            background-color: #e74c3c;
+            border-color: #c0392b;
+            border-radius: 5px;
+            color: white;
         }
     }
 }

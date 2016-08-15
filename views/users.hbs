@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="well todos">
+    {{!-- {{> add}} --}}
+    <ul class="list-group">
+      {{#each users}}
+        {{> user this}}
+      {{/each}}
+    </ul>
+    {{> footer}}
+  </div>
+</div>
