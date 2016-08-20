@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var async = require('async');
 var Todo = require('../models/todos');
 var User = require('../models/users');
 var Promise = require('bluebird');
@@ -23,7 +22,7 @@ if (process.env.MONGODB_URI) {
 mongoose.connect(dbConnectionString + '/todos');
 console.log(mongoose.connection.db.databaseName);
 
-
+// find the id of that user name
 User.findOne({'username' : username})
 .then(function(user){
     console.log(user);
@@ -32,6 +31,7 @@ User.findOne({'username' : username})
     return user._id;
 
 })
+// find all todos with no user and add that user
 .then(function(user_id){
     Todo.update({ "user" : { "$exists" : false }},{user : user_id},{multi: true},function(err,raw){
         if (err) return handleError(err);
